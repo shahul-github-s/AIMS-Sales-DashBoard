@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!----===== Iconscout CSS ===== -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+
+    <title>Disposition Form</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>Disposition Form</header>
+
+      <form action="index.html" name="submit-to-google-sheet">
+        <div class="form first">
+          <div class="details personal">
+            <span class="title">Customer Details</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  name="Customer Name"
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Date of Birth</label>
+                <input
+                  type="date"
+                  placeholder="Enter birth date"
+                  name="Date of Birth"
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Location</label>
+                <select name="Location">
+                  <option disabled selected>Select Location</option>
+                  <option>Panruti</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Mobile Number</label>
+                <input
+                  type="number"
+                  placeholder="Enter mobile number"
+                  name="Mobile Number"
+                />
+              </div>
+
+              <div class="input-field">
+                <label>Gender</label>
+                <select name="Gender">
+                  <option disabled selected>Select gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                  <option>TransGender</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Dispositioned By</label>
+                <select name="Dispositioned By">
+                  <option disabled selected>Select Agent Name</option>
+                  <option>Kaviya</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="details ID">
+            <span class="title">Service Details</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label>Service Category</label>
+                <select name="Category">
+                  <option disabled selected>Select Service Category</option>
+                  <option>General Services</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Service Department</label>
+                <select name="Department">
+                  <option disabled selected>Select Service Department</option>
+                  <option>Aadhar Card</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Service Name</label>
+                <select name="Service">
+                  <option disabled selected>Select Service Name</option>
+                  <option>Phone Number Update</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Lead Generated Source</label>
+                <select name="Lead Generated Source">
+                  <option disabled selected>
+                    Select Lead Generated Source Name
+                  </option>
+                  <option>Walk-in</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Customer Source</label>
+                <select name="Customer Source">
+                  <option disabled selected>Select Customer Source Name</option>
+                  <option>AIMS</option>
+                </select>
+              </div>
+
+              <div class="input-field">
+                <label>Referrel Code</label>
+                <select name="Referrel Code">
+                  <option disabled selected>Select Referrel Code</option>
+                  <option>AIMS-2007</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="button" class="nextBtn">
+              <span class="btnText">Transaction Details</span>
+              <i class="uil uil-navigator"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form second">
+          <div class="details address">
+            <span class="title">Address Details</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label>Address Type</label>
+                <input type="text" placeholder="Permanent or Temporary" />
+              </div>
+
+              <div class="input-field">
+                <label>Nationality</label>
+                <input type="text" placeholder="Enter nationality" />
+              </div>
+
+              <div class="input-field">
+                <label>State</label>
+                <input type="text" placeholder="Enter your state" />
+              </div>
+
+              <div class="input-field">
+                <label>District</label>
+                <input type="text" placeholder="Enter your district" />
+              </div>
+
+              <div class="input-field">
+                <label>Block Number</label>
+                <input type="number" placeholder="Enter block number" />
+              </div>
+
+              <div class="input-field">
+                <label>Ward Number</label>
+                <input type="number" placeholder="Enter ward number" />
+              </div>
+            </div>
+          </div>
+
+          <div class="details family">
+            <span class="title">Family Details</span>
+
+            <div class="fields">
+              <div class="input-field">
+                <label>Father Name</label>
+                <input type="text" placeholder="Enter father name" />
+              </div>
+
+              <div class="input-field">
+                <label>Mother Name</label>
+                <input type="text" placeholder="Enter mother name" />
+              </div>
+
+              <div class="input-field">
+                <label>Grandfather</label>
+                <input type="text" placeholder="Enter grandfther name" />
+              </div>
+
+              <div class="input-field">
+                <label>Spouse Name</label>
+                <input type="text" placeholder="Enter spouse name" />
+              </div>
+
+              <div class="input-field">
+                <label>Father in Law</label>
+                <input type="text" placeholder="Father in law name" />
+              </div>
+
+              <div class="input-field">
+                <label>Mother in Law</label>
+                <input type="text" placeholder="Mother in law name" />
+              </div>
+            </div>
+
+            <div class="buttons">
+              <div class="backBtn">
+                <i class="uil uil-navigator"></i>
+                <span class="btnText">Back</span>
+              </div>
+
+              <button class="sumbit">
+                <span class="btnText">Submit</span>
+                <i class="uil uil-navigator"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

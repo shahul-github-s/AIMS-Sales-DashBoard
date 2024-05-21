@@ -1,0 +1,9 @@
+Version 1 on May 21, 2024, 12:42 AM
+
+Deployment ID
+AKfycbxhsuWt2y1Yyl_wWTXXptzxgDtPmHeyAK1k-CItw6zfXpnZOD897PS6MDns6jcJA1J3
+
+Web app
+
+URL
+https://script.google.com/macros/s/AKfycbxhsuWt2y1Yyl_wWTXXptzxgDtPmHeyAK1k-CItw6zfXpnZOD897PS6MDns6jcJA1J3/exec
