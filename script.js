@@ -162,8 +162,5 @@ function validateMobileNumber() {
   const value = mobileNumberInput.value;
   if (!/^\d{10}$/.test(value)) {
     alert("Mobile number must be exactly 10 digits.");
-  } else {
-    alert("Mobile number is valid!");
-    // Proceed with form submission or other actions
   }
 }
