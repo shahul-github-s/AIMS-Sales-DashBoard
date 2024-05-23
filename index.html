@@ -55,9 +55,13 @@
               <div class="input-field">
                 <label>Mobile Number</label>
                 <input
-                  type="number"
+                  type="text"
                   placeholder="Enter mobile number"
                   name="Mobile Number"
+                  id="mobile-number"
+                  maxlength="10"
+                  onfocusout="validateMobileNumber()"
+                  required
                 />
               </div>
 
@@ -74,7 +78,7 @@
               <div class="input-field">
                 <label>Dispositioned By</label>
                 <select name="Dispositioned By">
-                  <option disabled selected>Select Agent Name</option>
+                  <option disabled selected>Select Staff Name</option>
                   <option>Kaviya</option>
                 </select>
               </div>
@@ -87,51 +91,54 @@
             <div class="fields">
               <div class="input-field">
                 <label>Service Category</label>
-                <select name="Category">
+                <select name="Category" id="category-select">
                   <option disabled selected>Select Service Category</option>
-                  <option>General Services</option>
+                  <option value="general-services">General Services</option>
+                  <option value="e-savai">E-Savai</option>
+                  <option value="job-application-support">
+                    Job Application Support
+                  </option>
+                  <option value="travel-services">Travel Services</option>
+                  <option value="tour-services">Tour Services</option>
                 </select>
               </div>
 
               <div class="input-field">
                 <label>Service Department</label>
-                <select name="Department">
+                <select name="Department" id="department-select">
                   <option disabled selected>Select Service Department</option>
-                  <option>Aadhar Card</option>
                 </select>
               </div>
 
               <div class="input-field">
                 <label>Service Name</label>
-                <select name="Service">
+                <select name="Service" id="service-select">
                   <option disabled selected>Select Service Name</option>
-                  <option>Phone Number Update</option>
                 </select>
               </div>
 
               <div class="input-field">
                 <label>Lead Generated Source</label>
-                <select name="Lead Generated Source">
+                <select name="Lead Generated Source" id="lead-source-select">
                   <option disabled selected>
                     Select Lead Generated Source Name
                   </option>
-                  <option>Walk-in</option>
                 </select>
               </div>
 
               <div class="input-field">
                 <label>Customer Source</label>
-                <select name="Customer Source">
+                <select name="Customer Source" id="customer-source-select">
                   <option disabled selected>Select Customer Source Name</option>
-                  <option>AIMS</option>
                 </select>
               </div>
 
               <div class="input-field">
                 <label>Referrel Code</label>
-                <select name="Referrel Code">
+                <select name="Referrel Code" id="referral-code-select">
                   <option disabled selected>Select Referrel Code</option>
-                  <option>AIMS-2007</option>
+                  <option value="AIMS-2007">AIMS-2007</option>
+                  <option value="AIMS-2024">AIMS-2024</option>
                 </select>
               </div>
             </div>
