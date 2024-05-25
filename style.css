@@ -171,3 +171,10 @@ form .buttons button,
     width: 100%;
   }
 }
+input.error,
+select.error {
+  border-color: red;
+}
+.error {
+  border: 2px solid red;
+}

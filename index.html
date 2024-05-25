@@ -4,27 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!----======== CSS ======== -->
     <link rel="stylesheet" href="style.css" />
-
-    <!----===== Iconscout CSS ===== -->
     <link
       rel="stylesheet"
       href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
     />
-
     <title>Disposition Form</title>
   </head>
   <body>
     <div class="container">
       <header>Disposition Form</header>
-
       <form action="index.html" name="submit-to-google-sheet">
         <div class="form first">
           <div class="details personal">
             <span class="title">Customer Details</span>
-
             <div class="fields">
               <div class="input-field">
                 <label>Full Name</label>
@@ -32,26 +25,25 @@
                   type="text"
                   placeholder="Enter your name"
                   name="Customer Name"
+                  required
                 />
               </div>
-
               <div class="input-field">
                 <label>Date of Birth</label>
                 <input
                   type="date"
                   placeholder="Enter birth date"
                   name="Date of Birth"
+                  required
                 />
               </div>
-
               <div class="input-field">
                 <label>Location</label>
-                <select name="Location">
+                <select name="Location" required>
                   <option disabled selected>Select Location</option>
                   <option>Panruti</option>
                 </select>
               </div>
-
               <div class="input-field">
                 <label>Mobile Number</label>
                 <input
@@ -64,34 +56,30 @@
                   required
                 />
               </div>
-
               <div class="input-field">
                 <label>Gender</label>
-                <select name="Gender">
+                <select name="Gender" required>
                   <option disabled selected>Select gender</option>
                   <option>Male</option>
                   <option>Female</option>
                   <option>TransGender</option>
                 </select>
               </div>
-
               <div class="input-field">
                 <label>Dispositioned By</label>
-                <select name="Dispositioned By">
+                <select name="Dispositioned By" required>
                   <option disabled selected>Select Staff Name</option>
                   <option>Kaviya</option>
                 </select>
               </div>
             </div>
           </div>
-
           <div class="details ID">
             <span class="title">Service Details</span>
-
             <div class="fields">
               <div class="input-field">
                 <label>Service Category</label>
-                <select name="Category" id="category-select">
+                <select name="Category" id="category-select" required>
                   <option disabled selected>Select Service Category</option>
                   <option value="general-services">General Services</option>
                   <option value="e-savai">E-Savai</option>
@@ -102,133 +90,139 @@
                   <option value="tour-services">Tour Services</option>
                 </select>
               </div>
-
               <div class="input-field">
                 <label>Service Department</label>
-                <select name="Department" id="department-select">
+                <select name="Department" id="department-select" required>
                   <option disabled selected>Select Service Department</option>
                 </select>
               </div>
-
               <div class="input-field">
                 <label>Service Name</label>
-                <select name="Service" id="service-select">
+                <select name="Service" id="service-select" required>
                   <option disabled selected>Select Service Name</option>
                 </select>
               </div>
-
               <div class="input-field">
                 <label>Lead Generated Source</label>
-                <select name="Lead Generated Source" id="lead-source-select">
+                <select
+                  name="Lead Generated Source"
+                  id="lead-source-select"
+                  required
+                >
                   <option disabled selected>
                     Select Lead Generated Source Name
                   </option>
                 </select>
               </div>
-
               <div class="input-field">
                 <label>Customer Source</label>
-                <select name="Customer Source" id="customer-source-select">
+                <select
+                  name="Customer Source"
+                  id="customer-source-select"
+                  required
+                >
                   <option disabled selected>Select Customer Source Name</option>
                 </select>
               </div>
-
               <div class="input-field">
                 <label>Referrel Code</label>
-                <select name="Referrel Code" id="referral-code-select">
+                <select name="Referrel Code" id="referral-code-select" required>
                   <option disabled selected>Select Referrel Code</option>
                   <option value="AIMS-2007">AIMS-2007</option>
                   <option value="AIMS-2024">AIMS-2024</option>
                 </select>
               </div>
             </div>
-
-            <button type="button" class="nextBtn">
+            <button type="button" class="nextBtn" onclick="validateForm()">
               <span class="btnText">Transaction Details</span>
               <i class="uil uil-navigator"></i>
             </button>
           </div>
         </div>
-
         <div class="form second">
           <div class="details address">
             <span class="title">Address Details</span>
-
             <div class="fields">
               <div class="input-field">
                 <label>Address Type</label>
-                <input type="text" placeholder="Permanent or Temporary" />
+                <input
+                  type="text"
+                  placeholder="Permanent or Temporary"
+                  required
+                />
               </div>
-
               <div class="input-field">
                 <label>Nationality</label>
-                <input type="text" placeholder="Enter nationality" />
+                <input type="text" placeholder="Enter nationality" required />
               </div>
-
               <div class="input-field">
                 <label>State</label>
-                <input type="text" placeholder="Enter your state" />
+                <input type="text" placeholder="Enter your state" required />
               </div>
-
               <div class="input-field">
                 <label>District</label>
-                <input type="text" placeholder="Enter your district" />
+                <input type="text" placeholder="Enter your district" required />
               </div>
-
               <div class="input-field">
                 <label>Block Number</label>
-                <input type="number" placeholder="Enter block number" />
+                <input
+                  type="number"
+                  placeholder="Enter block number"
+                  required
+                />
               </div>
-
               <div class="input-field">
                 <label>Ward Number</label>
-                <input type="number" placeholder="Enter ward number" />
+                <input type="number" placeholder="Enter ward number" required />
               </div>
             </div>
           </div>
-
           <div class="details family">
             <span class="title">Family Details</span>
-
             <div class="fields">
               <div class="input-field">
                 <label>Father Name</label>
-                <input type="text" placeholder="Enter father name" />
+                <input type="text" placeholder="Enter father name" required />
               </div>
-
               <div class="input-field">
                 <label>Mother Name</label>
-                <input type="text" placeholder="Enter mother name" />
+                <input type="text" placeholder="Enter mother name" required />
               </div>
-
               <div class="input-field">
                 <label>Grandfather</label>
-                <input type="text" placeholder="Enter grandfther name" />
+                <input
+                  type="text"
+                  placeholder="Enter grandfather name"
+                  required
+                />
               </div>
-
               <div class="input-field">
                 <label>Spouse Name</label>
-                <input type="text" placeholder="Enter spouse name" />
+                <input type="text" placeholder="Enter spouse name" required />
               </div>
-
               <div class="input-field">
                 <label>Father in Law</label>
-                <input type="text" placeholder="Father in law name" />
+                <input
+                  type="text"
+                  placeholder="Enter father in law name"
+                  required
+                />
               </div>
-
               <div class="input-field">
                 <label>Mother in Law</label>
-                <input type="text" placeholder="Mother in law name" />
+                <input
+                  type="text"
+                  placeholder="Enter mother in law name"
+                  required
+                />
               </div>
             </div>
-
             <div class="buttons">
               <div class="backBtn">
                 <i class="uil uil-navigator"></i>
                 <span class="btnText">Back</span>
               </div>
-
-              <button class="sumbit">
+              <button class="submit">
                 <span class="btnText">Submit</span>
                 <i class="uil uil-navigator"></i>
               </button>
@@ -237,7 +231,6 @@
         </div>
       </form>
     </div>
-
     <script src="script.js"></script>
   </body>
 </html>
