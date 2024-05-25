@@ -11,7 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #6d39aa;
+  background: #2e3047;
 }
 .container {
   position: relative;
@@ -173,7 +173,7 @@ form .buttons button,
 }
 input.error,
 select.error {
-  border: 2px solid red;
+  border-color: red;
 }
 .error {
   border: 2px solid red;
