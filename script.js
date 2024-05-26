@@ -198,6 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ],
     "Cruise Booking": ["Domestic", "International"],
     "Hotel Booking": ["Domestic", "International"],
+    "TN Employment Registration": ["New Register", "Renewal", "Addition"],
   };
 
   function updateSecondDropdown() {
