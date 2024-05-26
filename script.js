@@ -13,18 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let allFilled = true;
 
     allRequiredFields.forEach((field) => {
-      if (
-        !field.value ||
-        field.value === "Select Location" ||
-        field.value === "Select gender" ||
-        field.value === "Select Staff Name" ||
-        field.value === "Select Service Category" ||
-        field.value === "Select Service Department" ||
-        field.value === "Select Service Name" ||
-        field.value === "Select Lead Generated Source Name" ||
-        field.value === "Select Customer Source Name" ||
-        field.value === "Select Referral Code"
-      ) {
+      if (!field.value || field.value.includes("Select")) {
         field.classList.add("error");
         allFilled = false;
       } else {
@@ -60,22 +49,160 @@ document.addEventListener("DOMContentLoaded", function () {
   const departmentSelect = document.getElementById("department-select");
   const serviceSelect = document.getElementById("service-select");
 
-  const departments = {
-    "general-services": ["Aadhar Card", "Voter ID"],
-    "e-savai": [],
-    "job-application-support": [],
-    "travel-services": [],
-    "tour-services": [],
+  const secondDropdownOptions = {
+    "general-services": [
+      "Ration Card",
+      "Voter Id",
+      "Aadhar Card",
+      "Pan Card",
+      "College Application",
+      "License and RTO Services",
+      "Money Transfer Services",
+      "Counselling Apply",
+      "TN Police",
+      "TNEB",
+      "Online Payments",
+      "Dharisanam Bookings",
+      "Typing Services",
+    ],
+    "e-savai": [
+      "Income Certificate",
+      "Community Certificate",
+      "Nativity Certificate",
+      "Legal Hier Certificate",
+      "Intercaste Marriage Certificate",
+      "Obc Certificate",
+      "No Male Child Certificate",
+      "First Graduate Certificate",
+      "Small/Marginal Farmer Certificate",
+      "Widow Certificate",
+      "Deserted Women Certificate",
+      "Disability Pension Scheme",
+      "Widow Pension Scheme",
+      "Deserted Women Pension Scheme",
+      "Unmarried Women Pension Scheme",
+      "Old Age Pension Scheme",
+    ],
+    "job-application-support": ["TN Employment Registration"],
+    "travel-services": [
+      "Passport",
+      "Flight Ticket",
+      "Visa",
+      "Certificate Attestation",
+      "Bus Booking",
+      "Visa Stamping",
+      "Cruise Booking",
+      "Hotel Booking",
+      "Medical Appointment",
+    ],
+    "tour-services": ["Domestic Tour Packages", "International Packages"],
   };
 
-  const services = {
-    "Aadhar Card": ["Number Change", "Address Change"],
-    "Voter ID": ["Photo Change", "Signature"],
+  const thirdDropdownOptions = {
+    "Ration Card": [
+      "New Smart Card Apply",
+      "Add Member",
+      "Remove Member",
+      "Family Head Change",
+      "Smart Card Duplicate Apply",
+      "Address Change",
+    ],
+    "Voter Id": ["New Register", "Voter Id Duplicate Print", "Correction"],
+    "Aadhar Card": [
+      "Aadhar Address Change",
+      "Aadhar Id Card",
+      "Aadhar PVC Card Apply",
+      "Aadhar Card Full",
+    ],
+    "College Application": ["Anna University", "Annamalai University"],
+    "Pan Card": [
+      "Pan New",
+      "Pan Aadhar Link",
+      "E-Pan Card Printing",
+      "Pan Correction",
+    ],
+    "License and RTO Services": [
+      "LLR Apply",
+      "RTO Tax Payments",
+      "Police E Challan Payments",
+      "License Duplicate Card",
+    ],
+    "Money Transfer Services": [
+      "Domestic Money Transfer",
+      "AEPS Money Withdrawal (Aadhar ATM)",
+      "UPI Money Withdrawal",
+    ],
+    "Counselling Apply": [
+      "TNEA Engineering",
+      "TNAU Agriculture",
+      "TNDALU Law",
+      "TANUVAS Veterinary",
+      "Paramedical Science",
+      "MBBS/BDS",
+      "Diploma In Paramedical",
+      "MD/MDS",
+      "AIIMS/JIPMER",
+      "Diploma In Engineering",
+      "ITI Industrial Training",
+    ],
+    "TN Police": [
+      "Police NOC (Self Verification)",
+      "Document Missing",
+      "Online Complaint",
+      "FIR Print",
+    ],
+    TNEB: [
+      "EB Bill Payment",
+      "New Connection Payments",
+      "New Service Connection",
+      "Load Addition",
+      "Load Reduction",
+      "EB Name Transfer",
+    ],
+    "Online Payments": [
+      "College Tuition Fees Payments",
+      "College Admission Payments",
+      "SBI Collect Payments",
+      "RTO Tax Payments",
+      "Karuvoolam Challan Payments",
+      "Income Tax Payments",
+      "Property Tax Payments (Rural)",
+    ],
+    "Dharisanam Bookings": ["Tirupathi Booking", "Sabarimala Booking"],
+    "Typing Services": [
+      "Tamil Typing",
+      "English Typing",
+      "Resume Typing",
+      "Bio Data Typing",
+      "Jathagam Typing",
+    ],
+    Passport: [
+      "New Passport",
+      "Passport Renewal",
+      "Lost Or Damage Passport",
+      "PCC",
+      "Tatkal",
+    ],
+    "Flight Ticket": ["Flight Tickets", "Flight Ticket Rescheduling"],
+    Visa: ["Tourist Visa", "Student Visa", "Visit Visa"],
+    "Certificate Attestation": [
+      "Birth Certificate Attestation",
+      "Marriage Certificate Attestation",
+      "Degree Certificate Attestation",
+      "Educational Certificate Attestation",
+      "Commercial Certificate Attestation",
+      "Non-Commercial Certificate Attestation",
+      "MEA Attestation",
+      "HRD Attestation",
+      "PCC Attestation",
+    ],
+    "Cruise Booking": ["Domestic", "International"],
+    "Hotel Booking": ["Domestic", "International"],
   };
 
-  categorySelect.addEventListener("change", function () {
+  function updateSecondDropdown() {
     const selectedCategory = categorySelect.value;
-    const relevantDepartments = departments[selectedCategory] || [];
+    const relevantDepartments = secondDropdownOptions[selectedCategory] || [];
 
     departmentSelect.innerHTML =
       "<option disabled selected>Select Service Department</option>";
@@ -88,21 +215,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     serviceSelect.innerHTML =
       "<option disabled selected>Select Service Name</option>";
-  });
+  }
 
-  departmentSelect.addEventListener("change", function () {
+  function updateThirdDropdown() {
     const selectedDepartment = departmentSelect.value;
-    const relevantServices = services[selectedDepartment] || [];
+    const relevantServices = thirdDropdownOptions[selectedDepartment] || [];
 
     serviceSelect.innerHTML =
       "<option disabled selected>Select Service Name</option>";
-    relevantServices.forEach((service) => {
+    if (relevantServices.length > 0) {
+      relevantServices.forEach((service) => {
+        const option = document.createElement("option");
+        option.value = service;
+        option.textContent = service;
+        serviceSelect.appendChild(option);
+      });
+    } else {
       const option = document.createElement("option");
-      option.value = service;
-      option.textContent = service;
+      option.value = selectedDepartment;
+      option.textContent = selectedDepartment;
       serviceSelect.appendChild(option);
-    });
-  });
+    }
+  }
+
+  categorySelect.addEventListener("change", updateSecondDropdown);
+  departmentSelect.addEventListener("change", updateThirdDropdown);
 
   const referralCodeSelect = document.getElementById("referral-code-select");
   const customerSourceSelect = document.getElementById(
