@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const serviceSelect = document.getElementById("service-select");
 
   const secondDropdownOptions = {
-    "general-services": [
+    "General Services": [
       "Ration Card",
       "Voter Id",
       "Aadhar Card",
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "Dharisanam Bookings",
       "Typing Services",
     ],
-    "e-savai": [
+    "E-Savai": [
       "Income Certificate",
       "Community Certificate",
       "Nativity Certificate",
@@ -83,8 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
       "Unmarried Women Pension Scheme",
       "Old Age Pension Scheme",
     ],
-    "job-application-support": ["TN Employment Registration"],
-    "travel-services": [
+    "Job Application Supportt": ["TN Employment Registration"],
+    "Travel Services": [
       "Passport",
       "Flight Ticket",
       "Visa",
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "Hotel Booking",
       "Medical Appointment",
     ],
-    "tour-services": ["Domestic Tour Packages", "International Packages"],
+    "Tour Services": ["Domestic Tour Packages", "International Packages"],
   };
 
   const thirdDropdownOptions = {
