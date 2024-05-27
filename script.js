@@ -33,17 +33,17 @@ document.addEventListener("DOMContentLoaded", function () {
     form.classList.remove("secActive");
   });
 
-  // form.addEventListener("submit", function (e) {
-  //   e.preventDefault();
-  //   const scriptURL =
-  //     "https://script.google.com/macros/s/AKfycbz2mAv0E8eCsBTRQLnOXtFhM3ibiFSBxZU4bqy5GLTX0PCldXsffX93_kaLIAECDbWc/exec";
-  //   fetch(scriptURL, { method: "POST", body: new FormData(form) })
-  //     .then((response) => {
-  //       alert("Thank you! Your form is submitted successfully.");
-  //       console.log("Success!", response);
-  //     })
-  //     .catch((error) => console.error("Error!", error.message));
-  // });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbz2mAv0E8eCsBTRQLnOXtFhM3ibiFSBxZU4bqy5GLTX0PCldXsffX93_kaLIAECDbWc/exec";
+    fetch(scriptURL, { method: "POST", body: new FormData(form) })
+      .then((response) => {
+        alert("Thank you! Your form is submitted successfully.");
+        console.log("Success!", response);
+      })
+      .catch((error) => console.error("Error!", error.message));
+  });
 
   const categorySelect = document.getElementById("category-select");
   const departmentSelect = document.getElementById("department-select");
@@ -314,15 +314,4 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Mobile number must be exactly 10 digits.");
     }
   });
-});
-
-const scriptURL =
-  "https://script.google.com/macros/s/AKfycbz2mAv0E8eCsBTRQLnOXtFhM3ibiFSBxZU4bqy5GLTX0PCldXsffX93_kaLIAECDbWc/exec";
-const form = document.forms["submit-to-google-sheet"];
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  fetch(scriptURL, { method: "POST", body: new FormData(form) })
-    .then((response) => console.log("Success!", response))
-    .catch((error) => console.error("Error!", error.message));
 });
