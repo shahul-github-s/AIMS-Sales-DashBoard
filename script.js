@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "Unmarried Women Pension Scheme",
       "Old Age Pension Scheme",
     ],
-    "Job Application Supportt": ["TN Employment Registration"],
+    "Job Application Support": ["TN Employment Registration"],
     "Travel Services": [
       "Passport",
       "Flight Ticket",
