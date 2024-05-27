@@ -298,9 +298,10 @@
               <div class="input-field">
                 <label>Application Charge</label>
                 <input
-                  type="Number"
+                  type="number"
                   placeholder="Enter Application Charge"
                   name="Application Charge"
+                  id="application-charge"
                   required
                 />
               </div>
@@ -310,6 +311,7 @@
                   type="number"
                   placeholder="Enter Service Charge"
                   name="Service Charge"
+                  id="service-charge"
                   required
                 />
               </div>
@@ -319,9 +321,11 @@
                   type="number"
                   placeholder="Service + Application Charge"
                   name="Total Amount"
+                  id="total-amount"
                   required
                 />
               </div>
+
               <div class="input-field">
                 <label>Credited Transcation Mode</label>
                 <select name="Credited Transcation Mode" id="" required>
@@ -345,18 +349,12 @@
               </div>
               <div class="input-field">
                 <label>Pending Amount</label>
-                <input
-                  type="number"
-                  placeholder="Balance Amount"
-                  id=""
-                  required
-                />
+                <input type="number" placeholder="Balance Amount" id="" />
               </div>
             </div>
           </div>
 
           <div class="details family">
-            <!-- <span class="title">Family Details</span> -->
             <div class="fields"></div>
             <div class="buttons">
               <div class="backBtn">
