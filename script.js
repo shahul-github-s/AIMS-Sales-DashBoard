@@ -314,4 +314,18 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Mobile number must be exactly 10 digits.");
     }
   });
+
+  const applicationChargeInput = document.getElementById("application-charge");
+  const serviceChargeInput = document.getElementById("service-charge");
+  const totalAmountInput = document.getElementById("total-amount");
+
+  applicationChargeInput.addEventListener("input", updateTotalAmount);
+  serviceChargeInput.addEventListener("input", updateTotalAmount);
+
+  function updateTotalAmount() {
+    const applicationCharge = parseFloat(applicationChargeInput.value) || 0;
+    const serviceCharge = parseFloat(serviceChargeInput.value) || 0;
+    const totalAmount = applicationCharge + serviceCharge;
+    totalAmountInput.value = totalAmount.toFixed(2); // Display total with 2 decimal places
+  }
 });
