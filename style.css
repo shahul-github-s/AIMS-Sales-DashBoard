@@ -109,8 +109,9 @@ select {
 }
 .input-field select,
 .input-field input[type="date"] {
-  color: #707070;
+  color: #353333;
 }
+
 .input-field input[type="date"]:valid {
   color: #333;
 }
@@ -177,4 +178,16 @@ select.error {
 }
 .error {
   border: 2px solid red;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
