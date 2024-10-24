@@ -1,1 +1,0 @@
-import{P as e,j as s}from"./mui-913aed92.js";const n=({color:r,label:t})=>s.jsxs("div",{className:"flex items-center gap-2 font-medium text-[15px] text-header leading-none",children:[s.jsx("span",{className:"w-3 h-3 rounded",style:{background:r}}),t]});n.propTypes={color:e.string.isRequired,label:e.string.isRequired};export{n as C};
