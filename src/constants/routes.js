@@ -1,6 +1,6 @@
 import Logout from "@components/Logout"; // Adjust the import path accordingly
 import Product from "@pages/Products";
-import PaymentPendingForm from "@widgets/PaymentPendingForm";
+// import PaymentPendingForm from "@widgets/PaymentPendingForm";
 const ROUTES = {
   main: [
     {
