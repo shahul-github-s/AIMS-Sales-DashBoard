@@ -1,0 +1,52 @@
+function doGet() {
+  const sheet = SpreadsheetApp.openById("1XbBbTd5wQwaZ_MFKo7MFE39hkxtNw4XRTzzhTxg2g8s")
+                              .getSheetByName("AIMS Sales Report");
+  const spreadsheet = SpreadsheetApp.openById("1XbBbTd5wQwaZ_MFKo7MFE39hkxtNw4XRTzzhTxg2g8s");
+
+  // Define the range to export
+  const range = sheet.getRange("A249:O268");
+
+  // Create the PDF export URL
+  const url = 'https://docs.google.com/spreadsheets/d/' + spreadsheet.getId() + 
+              '/export?exportFormat=pdf&format=pdf' + 
+              '&gid=' + sheet.getSheetId() + // GID for the sheet
+              '&range=' + range.getA1Notation() + // Range to export
+              '&size=A4' + // A4 paper size
+              '&portrait=true' + // Set to portrait mode
+              '&fitw=true' + // Fit to width
+              '&gridlines=false' + // Hide gridlines
+              '&printtitle=false' + // Hide title rows
+              '&sheetnames=false' + // Hide sheet names
+              '&pagenum=false' + // Hide page numbers
+              '&fzr=false' + // Disable frozen rows/columns
+              '&attachment=true' + // Force download as an attachment
+              '&scale=4'; // Scaling factor to adjust content (4 is a good scale for font sizing)
+
+  // OAuth token to authorize export
+  const token = ScriptApp.getOAuthToken();
+  
+  // Fetch the PDF file
+  const response = UrlFetchApp.fetch(url, {
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  // Get today's date and format it
+  const today = new Date();
+  const formattedDate = Utilities.formatDate(today, Session.getScriptTimeZone(), "dd MMMM yyyy");
+  
+  // Create a dynamic file name
+  const fileName = formattedDate + ' - In Hand Cash Details.pdf';
+  
+  // Save the PDF to Google Drive with the dynamic file name
+  const pdfBlob = response.getBlob().setName(fileName);
+  const file = DriveApp.createFile(pdfBlob);
+
+  // Get the download URL
+  const pdfUrl = file.getDownloadUrl();
+
+  // Return the download URL as JSON
+  return ContentService.createTextOutput(JSON.stringify({ url: pdfUrl }))
+                       .setMimeType(ContentService.MimeType.JSON);
+}

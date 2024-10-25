@@ -1,0 +1,23 @@
+AppScript Code Amount Division 1 - Version 1.0
+https://script.google.com/macros/s/AKfycbzD7mXCO-RrpIDbdd4zW-l9n4DOsv7kgp0pYRIW3kR2aLm1FX1Geb7jYmmcrGcUfCUD/exec
+
+
+function doGet() {
+  const sheet = SpreadsheetApp.openById("1XbBbTd5wQwaZ_MFKo7MFE39hkxtNw4XRTzzhTxg2g8s")
+                              .getSheetByName("AIMS Sales Report"); // Using your provided sheet name
+  const range = sheet.getRange("B253:C267"); // Specified range
+  const rows = range.getValues(); // Fetch all the data in the specified range
+
+  // Convert the data into a JSON-friendly format
+  const headers = ["Service Unit", "Charges"]; 
+  const data = rows.map((row) => {
+    let record = {};
+    row.forEach((value, index) => {
+      record[headers[index]] = value;
+    });
+    return record;
+  });
+
+  // Return the data as a JSON response
+  return ContentService.createTextOutput(JSON.stringify(data)).setMimeType(ContentService.MimeType.JSON);
+}
