@@ -1,0 +1,1 @@
+import{P as e,j as t}from"./mui-306f5cf6.js";const o=({product:s,titleClass:r})=>t.jsx("div",{className:"flex flex-col items-start",children:t.jsx("span",{className:`font-medium text-[15px] text-header hover:text-turquoise ${r||""}`,children:s.name})});o.propTypes={product:e.object.isRequired,titleClass:e.string};export{o as T};

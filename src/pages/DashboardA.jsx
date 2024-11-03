@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import AppBar from "@components/AppBar";
 import AppGrid from "@components/AppGrid";
 import Statistics from "@widgets/Statistics";
@@ -26,6 +27,7 @@ const widget = {
 
 const DashboardA = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [error, setError] = useState(null); // State to hold error messages
 
   // Check authentication status on initial render
   useEffect(() => {
@@ -44,6 +46,24 @@ const DashboardA = () => {
   if (!isAuthenticated) {
     return <SignIn setIsAuthenticated={setIsAuthenticated} />;
   }
+
+  const handleExport = async () => {
+    const exportUrl =
+      "https://script.google.com/macros/s/AKfycbwHiDzRQxCge6m-a0Wk1O0QTZZBm-au-mZkP-1Al1jWeSN5ECyuUR39puBuxE9nKtKY/exec"; // Replace with your Web App URL
+    try {
+      const response = await axios.get(exportUrl);
+      // console.log("Export response:", response.data); // Debugging line
+      const { url } = response.data;
+      if (url) {
+        window.open(url, "_blank");
+      } else {
+        // console.error("No URL returned for export");
+      }
+    } catch (error) {
+      // console.error("Error exporting file:", error);
+      setError("Failed to export the file. Please try again later."); // Set export error message
+    }
+  };
 
   return (
     <>
@@ -70,6 +90,13 @@ const DashboardA = () => {
         <h2>Sales Review</h2>
         <ServiceCatagorySales />
         <ServiceTable />
+        <button
+          className="btn btn--base h-[50px] px-5 gap-2"
+          onClick={handleExport}
+        >
+          <i className="icon-arrow-down-to-line-regular text-[16px]" />
+          Export
+        </button>
       </div>
     </>
   );

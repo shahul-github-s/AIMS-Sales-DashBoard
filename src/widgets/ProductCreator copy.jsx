@@ -83,11 +83,11 @@ const ProductCreator = () => {
       >
         <div className="card p-5 flex flex-col gap-4 xs:p-6 md:gap-6">
           <div className="flex flex-col gap-3 md:gap-4">
-            <h2>Referral Amount</h2>
+            <h2>Description</h2>
             <div className="card-container card-container--light p-4 rounded-2xl flex flex-col gap-3 md:gap-5">
               <div className="field-wrapper">
                 <label className="field-label" htmlFor="name">
-                  Reason
+                  Product Name
                 </label>
                 <input
                   className={classNames("field-input", {

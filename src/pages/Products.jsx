@@ -1,46 +1,67 @@
-// components
-import AppBar from "@components/AppBar";
-import FilterMenu from "@components/FilterMenu";
-import ProductsDisplay from "@widgets/ProductsDisplay";
-import Loader from "@components/Loader";
-import AmountDivision1 from "@widgets/AmountDivision1";
-
-// hooks
 import { useState, useEffect } from "react";
+import AppBar from "@components/AppBar";
+import AppGrid from "@components/AppGrid";
+import StatsOverview from "@widgets/StatsOverview";
+import AmountDivision1 from "@widgets/AmountDivision1";
+import SalesByCategoryRadialBar from "@widgets/SalesByCategoryRadialBar";
 import { useWindowSize } from "react-use";
+import Loader from "@components/Loader"; // Import the Loader component
+
+const GOOGLE_SHEET_URL =
+  "https://script.google.com/macros/s/AKfycbwcAwIodCClPGlH0KBFyBOm_Rzu8Bpfa0rZg_1g36rYDMjKqHfnHv569QCyK4A5EHC_/exec"; // Replace with your Web App URL
 
 const Products = () => {
+  const [data, setData] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true); // loading set to true initially
   const { width } = useWindowSize();
   const [view, setView] = useState("list");
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setMenuOpen(false);
-
     if (width >= 1280 && view === "list") {
       setMenuOpen(true);
     }
   }, [view, width]);
 
   useEffect(() => {
-    setLoading(true);
+    // Fetch data from Google Sheets
+    const fetchData = async () => {
+      try {
+        const response = await fetch(GOOGLE_SHEET_URL);
+        const result = await response.json();
+        setData(result);
+        setLoading(false); // Set loading to false after data is fetched
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setLoading(false); // Set loading to false in case of an error
+      }
+    };
+    fetchData();
+  }, []);
 
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, [view]);
-  // Handle logout (e.g., from a logout button or menu item)
   const handleLogout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem("isAuthenticated");
   };
+
+  // If loading, display the Loader component
+  if (loading) {
+    return <Loader />; // Display Loader while data is loading
+  }
+
+  // If data is successfully loaded, define widgets and render them
+  const widgets = {
+    stats_overview_a: <StatsOverview title="Sales Review" data={data.a} />,
+    stats_overview_b: <StatsOverview title="Revenue Overview" data={data.b} />,
+    profit: <SalesByCategoryRadialBar />,
+  };
+
   return (
     <>
-      {/* <header>hello</header> */}
       <AppBar title="AIMS Sales Dashboard" onLogout={handleLogout} />
-      {/* <h2>Amount Division - 1</h2> */}
+      <AppGrid id="dashboard_c" widgets={widgets} />
       <AmountDivision1 />
     </>
   );

@@ -1,6 +1,6 @@
 import Logout from "@components/Logout"; // Adjust the import path accordingly
 import Product from "@pages/Products";
-// import PaymentPendingForm from "@widgets/PaymentPendingForm";
+
 const ROUTES = {
   main: [
     {
@@ -45,54 +45,53 @@ const ROUTES = {
         // },
       ],
     },
-    // {
-    //   name: "Disposition Forms",
-    //   icon: "square-list",
-    //   links: [
-    //     {
-    //       path: "/PaymentPendingForm",
-    //       name: "Payment Pendings",
-    //       components: PaymentPendingForm,
-    //     },
-    // {
-    //   path: "/order-details",
-    //   name: "Order Details",
-    // },
-    // {
-    //   path: "/invoice",
-    //   name: "Invoice",
-    // },
-    //   ],
-    // },
-    // {
-    //   path: "/sales",
-    //   name: "Sales",
-    //   icon: "badge-percent",
-    // },
-    // {
-    //   path: "/reviews",
-    //   name: "Reviews",
-    //   icon: "message-quote",
-    // },
-    // {
-    //   name: "Pages",
-    //   icon: "layer-group",
-    //   links: [
-    //     {
-    //       path: "/sign-in",
-    //       name: "Sign In",
-    //     },
-    //     {
-    //       path: "/sign-up",
-    //       name: "Sign Up",
-    //     },
-    //     {
-    //       path: "/404",
-    //       name: "Page 404",
-    //     },
-    //   ],
-    // },
+    {
+      name: "Team Productivity",
+      // icon: "square-list",
+      icon: "badge-percent",
+
+      links: [
+        {
+          path: "/order-details",
+          name: "Performance",
+        },
+        // {
+        //   path: "/invoice",
+        //   name: "Invoice",
+        // },
+        //   ],
+        // },
+        // {
+        //   path: "/sales",
+        //   name: "Sales",
+        //   icon: "badge-percent",
+        // },
+        // {
+        //   path: "/reviews",
+        //   name: "Reviews",
+        //   icon: "message-quote",
+      ],
+    },
+    {
+      name: "Disposition Form",
+      icon: "layer-group",
+      links: [
+        // {
+        //   path: "/sign-in",
+        //   name: "Sign In",
+        // },
+        {
+          path: "/create-product",
+          name: "Daily Expenses",
+        },
+        // {
+        //   path: "/404",
+        //   name: "Page 404",
+        // },
+      ],
+    },
   ],
+
   secondary: [
     // {
     //   path: "/settings",

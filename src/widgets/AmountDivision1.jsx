@@ -119,7 +119,7 @@ const ServiceTable = () => {
         alignItems: "flex-start",
       }}
     >
-      {error ? <p>{error}</p> : null}
+      {/* {error ? <p>{error}</p> : null} */}
       {data1.length > 0 && (
         <ServiceDataTable
           title="Business Revenue - Net Cafe"
