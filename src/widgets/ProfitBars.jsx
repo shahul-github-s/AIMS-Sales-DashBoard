@@ -74,7 +74,7 @@ const ProfitBars = () => {
   return (
     <Spring className="card flex flex-col p-5 h-[392px] xs:p-6 md:h-full">
       <div className="flex items-center justify-between">
-        <h2>Audio Overview</h2>
+        <h2>Audience Overview</h2>
         <div className="min-w-[105px]">
           <Select value={period} onChange={setPeriod} options={PERIODS} />
         </div>

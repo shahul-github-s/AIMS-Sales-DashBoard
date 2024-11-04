@@ -12,7 +12,7 @@ import ChartLegend from "@ui/ChartLegend";
 import { PERIODS } from "@constants/options";
 
 const GOOGLE_SHEET_URL =
-  "https://script.google.com/macros/s/AKfycbwHtbvuQ3Mysvpd5Ghi22FObwA3r3ruJk0KrYZlboVs2rRY4UgmudFewKhmbUTQtKLS/exec"; // Replace with your Web App URL
+  "https://script.google.com/macros/s/AKfycbxzKAkPSeJOWC0IIAgmPtCCrjt1ZxEybnWP7Duy-oE8HQPbgCc7o8bX3KYeOlRY0Z9x/exec"; // Replace with your Web App URL
 
 const SalesByCategoryRadialBar = () => {
   const [period, setPeriod] = useState(PERIODS[0]);
@@ -71,7 +71,8 @@ const SalesByCategoryRadialBar = () => {
 
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
-      return <div className="basic-tooltip">${payload[0].value}</div>;
+      return <div className="basic-tooltip">{payload[0].value}</div>;
+      // return <div className="basic-tooltip">${payload[0].value}</div>;
     }
     return null;
   };

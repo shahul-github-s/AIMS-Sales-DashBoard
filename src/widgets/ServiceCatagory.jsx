@@ -136,19 +136,17 @@ const ServiceTable = () => {
 
   const handleExport = async () => {
     const exportUrl =
-      "https://script.google.com/macros/s/AKfycbxzvEcbC38UG2gDvb1gpSz8bzAJWcnIlcHgZgAX3aA8dGfhsbqWuzcltqnKGp7ARbYD/exec"; // Replace with your Web App URL
+      "https://script.google.com/macros/s/AKfycbwhwMG_XGtXbj1k-ZEv0XXBC2t8ade-Pmqhkwsb_NokoAIvUVWzFyKgWs3lAcFKhl2L/exec"; // Your Web App URL
     try {
       const response = await axios.get(exportUrl);
-      // console.log("Export response:", response.data); // Debugging line
       const { url } = response.data;
       if (url) {
         window.open(url, "_blank");
       } else {
-        // console.error("No URL returned for export");
+        console.error("No URL returned for export");
       }
     } catch (error) {
-      // console.error("Error exporting file:", error);
-      // setError("Failed to export the file. Please try again later."); // Set export error message
+      console.error("Error exporting file:", error);
     }
   };
 

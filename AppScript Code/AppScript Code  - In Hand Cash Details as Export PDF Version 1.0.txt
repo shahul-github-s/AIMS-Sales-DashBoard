@@ -1,10 +1,10 @@
 function doGet() {
   const sheet = SpreadsheetApp.openById("1XbBbTd5wQwaZ_MFKo7MFE39hkxtNw4XRTzzhTxg2g8s")
-                              .getSheetByName("AIMS Sales Report");
+                              .getSheetByName("Sales Report");
   const spreadsheet = SpreadsheetApp.openById("1XbBbTd5wQwaZ_MFKo7MFE39hkxtNw4XRTzzhTxg2g8s");
 
   // Define the range to export
-  const range = sheet.getRange("A249:O268");
+  const range = sheet.getRange("A28:O50");
 
   // Create the PDF export URL
   const url = 'https://docs.google.com/spreadsheets/d/' + spreadsheet.getId() + 

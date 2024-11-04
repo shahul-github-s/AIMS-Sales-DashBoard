@@ -8,7 +8,7 @@ import { useWindowSize } from "react-use";
 import Loader from "@components/Loader"; // Import the Loader component
 
 const GOOGLE_SHEET_URL =
-  "https://script.google.com/macros/s/AKfycbwcAwIodCClPGlH0KBFyBOm_Rzu8Bpfa0rZg_1g36rYDMjKqHfnHv569QCyK4A5EHC_/exec"; // Replace with your Web App URL
+  "https://script.google.com/macros/s/AKfycbyLL5IapzTnNJ67tRiuRvDcje6PNcYN_Qbc8KWwvA0D6S_a5dbc4XgRiuG8LNhjX7IT/exec"; // Replace with your Web App URL
 
 const Products = () => {
   const [data, setData] = useState(null);
@@ -53,8 +53,8 @@ const Products = () => {
 
   // If data is successfully loaded, define widgets and render them
   const widgets = {
-    stats_overview_a: <StatsOverview title="Sales Review" data={data.a} />,
-    stats_overview_b: <StatsOverview title="Revenue Overview" data={data.b} />,
+    stats_overview_a: <StatsOverview title="Today Sales" data={data.a} />,
+    stats_overview_b: <StatsOverview title="Total Sales" data={data.b} />,
     profit: <SalesByCategoryRadialBar />,
   };
 
